@@ -34,7 +34,9 @@ services:
         volumes:
             - ./code:/home/node/code
         # configure working directory for installing next.js
-        working_dir: /home/node/code/
+        # working_dir: /home/node/code/
+        # configure working directory for running the application
+        working_dir: /home/node/code/foodfinder-application
         # this container depends on a running backend container
         depends_on:
             - backend
@@ -45,6 +47,7 @@ services:
             - CHOKIDAR_INTERVAL=100
         # keep container alive for installing next.js
         tty: true
+        command: "npm run dev"
 
 volumes:
     mongodb_data_container:
