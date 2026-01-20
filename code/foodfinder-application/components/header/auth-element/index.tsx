@@ -7,10 +7,10 @@ const AuthElement = (): JSX.Element => {
     const { data: session, status } = useSession();
     return (
         <>
-            { status === "authenticated" (
+            { status === "authenticated" && (
                 <span className={styles.name}>
                     Hi <b>{session?.user?.name}</b>
-                    </span>
+                </span>
             )}
             <nav className={styles.root}>
                 {status === "authenticated" && (
@@ -19,7 +19,7 @@ const AuthElement = (): JSX.Element => {
                             <Link
                         href={`/list/${session?.user.fdlst_private_userId}`}
                             >
-                            Your wish list
+                                Your wish list
                             </Link>
                         </Button>
                         <Button variant="blue" clickHandler={() => signOut()}>
